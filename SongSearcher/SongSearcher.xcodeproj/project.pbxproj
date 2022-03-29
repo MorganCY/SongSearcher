@@ -7,23 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		385F5BFD6C27F7989889F6BC /* Pods_SongSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D2A5792C7869D8919DA703 /* Pods_SongSearcher.framework */; };
+		5C049D6327F3342D0038EAC6 /* APIResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C049D6227F3342D0038EAC6 /* APIResource.swift */; };
+		5C907AFC27F3322A003EE15C /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C907AFB27F3322A003EE15C /* APIKeys.plist */; };
 		5CC1742827E58A15008DA08C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1742727E58A15008DA08C /* AppDelegate.swift */; };
 		5CC1742A27E58A15008DA08C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1742927E58A15008DA08C /* SceneDelegate.swift */; };
-		5CC1742C27E58A15008DA08C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1742B27E58A15008DA08C /* ViewController.swift */; };
+		5CC1742C27E58A15008DA08C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1742B27E58A15008DA08C /* HomeViewController.swift */; };
 		5CC1742F27E58A15008DA08C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1742D27E58A15008DA08C /* Main.storyboard */; };
 		5CC1743127E58A15008DA08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1743027E58A15008DA08C /* Assets.xcassets */; };
 		5CC1743427E58A15008DA08C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1743227E58A15008DA08C /* LaunchScreen.storyboard */; };
+		5CC1743C27E58D4E008DA08C /* KKBOXProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1743B27E58D4E008DA08C /* KKBOXProvider.swift */; };
+		5CC1743E27E59486008DA08C /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1743D27E59486008DA08C /* HTTPClient.swift */; };
+		5CC1744027E5963D008DA08C /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1743F27E5963D008DA08C /* URLRequest+Extension.swift */; };
+		5CC1744227E59913008DA08C /* KKBOXResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1744127E59913008DA08C /* KKBOXResponse.swift */; };
+		5CC1744627E6FF40008DA08C /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1744527E6FF40008DA08C /* Box.swift */; };
+		5CC1744827E70213008DA08C /* KKBOXViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1744727E70213008DA08C /* KKBOXViewModel.swift */; };
+		5CC1744A27E7023F008DA08C /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1744927E7023F008DA08C /* TrackViewModel.swift */; };
+		5CC1744D27E71916008DA08C /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1744C27E71916008DA08C /* TrackCell.swift */; };
+		5CC1744F27E71933008DA08C /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1744E27E71933008DA08C /* TrackCell.xib */; };
+		5CC1745227E7655D008DA08C /* isEmpty+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1745127E7655D008DA08C /* isEmpty+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04D2A5792C7869D8919DA703 /* Pods_SongSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SongSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C049D6227F3342D0038EAC6 /* APIResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResource.swift; sourceTree = "<group>"; };
+		5C907AFB27F3322A003EE15C /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		5CC1742427E58A15008DA08C /* SongSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC1742727E58A15008DA08C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CC1742927E58A15008DA08C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5CC1742B27E58A15008DA08C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5CC1742B27E58A15008DA08C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5CC1742E27E58A15008DA08C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CC1743027E58A15008DA08C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CC1743327E58A15008DA08C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CC1743527E58A15008DA08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CC1743B27E58D4E008DA08C /* KKBOXProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKBOXProvider.swift; sourceTree = "<group>"; };
+		5CC1743D27E59486008DA08C /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		5CC1743F27E5963D008DA08C /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
+		5CC1744127E59913008DA08C /* KKBOXResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKBOXResponse.swift; sourceTree = "<group>"; };
+		5CC1744527E6FF40008DA08C /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		5CC1744727E70213008DA08C /* KKBOXViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKBOXViewModel.swift; sourceTree = "<group>"; };
+		5CC1744927E7023F008DA08C /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
+		5CC1744C27E71916008DA08C /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		5CC1744E27E71933008DA08C /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
+		5CC1745127E7655D008DA08C /* isEmpty+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "isEmpty+Extension.swift"; sourceTree = "<group>"; };
+		5E11FAADE56E3C490CBF0EAD /* Pods-SongSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongSearcher.debug.xcconfig"; path = "Target Support Files/Pods-SongSearcher/Pods-SongSearcher.debug.xcconfig"; sourceTree = "<group>"; };
+		9C6B36822CB1E7E60762D3DF /* Pods-SongSearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongSearcher.release.xcconfig"; path = "Target Support Files/Pods-SongSearcher/Pods-SongSearcher.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +59,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				385F5BFD6C27F7989889F6BC /* Pods_SongSearcher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C049D6627F35B7A0038EAC6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5CC1742B27E58A15008DA08C /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5C049D6727F35BA60038EAC6 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				5CC1744527E6FF40008DA08C /* Box.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		5C049D6827F35BB80038EAC6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5CC1743F27E5963D008DA08C /* URLRequest+Extension.swift */,
+				5CC1745127E7655D008DA08C /* isEmpty+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		5C049D6927F35BCB0038EAC6 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				5CC1743D27E59486008DA08C /* HTTPClient.swift */,
+				5C049D6227F3342D0038EAC6 /* APIResource.swift */,
+				5C907AFB27F3322A003EE15C /* APIKeys.plist */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
 		5CC1741B27E58A15008DA08C = {
 			isa = PBXGroup;
 			children = (
 				5CC1742627E58A15008DA08C /* SongSearcher */,
 				5CC1742527E58A15008DA08C /* Products */,
+				A1E263353E8FC34C8B367903 /* Pods */,
+				F627D5F15041E4558FC63ED4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +122,57 @@
 		5CC1742627E58A15008DA08C /* SongSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				5C049D6927F35BCB0038EAC6 /* HTTP */,
+				5C049D6827F35BB80038EAC6 /* Extension */,
+				5C049D6627F35B7A0038EAC6 /* ViewController */,
+				5CC1745027E7269B008DA08C /* Track */,
+				5CC1744B27E70BDB008DA08C /* KKBOX */,
 				5CC1742727E58A15008DA08C /* AppDelegate.swift */,
 				5CC1742927E58A15008DA08C /* SceneDelegate.swift */,
-				5CC1742B27E58A15008DA08C /* ViewController.swift */,
+				5C049D6727F35BA60038EAC6 /* Utility */,
 				5CC1742D27E58A15008DA08C /* Main.storyboard */,
-				5CC1743027E58A15008DA08C /* Assets.xcassets */,
 				5CC1743227E58A15008DA08C /* LaunchScreen.storyboard */,
+				5CC1743027E58A15008DA08C /* Assets.xcassets */,
 				5CC1743527E58A15008DA08C /* Info.plist */,
 			);
 			path = SongSearcher;
+			sourceTree = "<group>";
+		};
+		5CC1744B27E70BDB008DA08C /* KKBOX */ = {
+			isa = PBXGroup;
+			children = (
+				5CC1743B27E58D4E008DA08C /* KKBOXProvider.swift */,
+				5CC1744727E70213008DA08C /* KKBOXViewModel.swift */,
+				5CC1744127E59913008DA08C /* KKBOXResponse.swift */,
+			);
+			path = KKBOX;
+			sourceTree = "<group>";
+		};
+		5CC1745027E7269B008DA08C /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				5CC1744927E7023F008DA08C /* TrackViewModel.swift */,
+				5CC1744C27E71916008DA08C /* TrackCell.swift */,
+				5CC1744E27E71933008DA08C /* TrackCell.xib */,
+			);
+			path = Track;
+			sourceTree = "<group>";
+		};
+		A1E263353E8FC34C8B367903 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E11FAADE56E3C490CBF0EAD /* Pods-SongSearcher.debug.xcconfig */,
+				9C6B36822CB1E7E60762D3DF /* Pods-SongSearcher.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F627D5F15041E4558FC63ED4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04D2A5792C7869D8919DA703 /* Pods_SongSearcher.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +182,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CC1743827E58A15008DA08C /* Build configuration list for PBXNativeTarget "SongSearcher" */;
 			buildPhases = (
+				18BCA19D6BD6F7C532D43724 /* [CP] Check Pods Manifest.lock */,
 				5CC1742027E58A15008DA08C /* Sources */,
 				5CC1742127E58A15008DA08C /* Frameworks */,
 				5CC1742227E58A15008DA08C /* Resources */,
+				CE9F81DDFBC13076D65AB6EA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,21 +235,75 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C907AFC27F3322A003EE15C /* APIKeys.plist in Resources */,
 				5CC1743427E58A15008DA08C /* LaunchScreen.storyboard in Resources */,
 				5CC1743127E58A15008DA08C /* Assets.xcassets in Resources */,
 				5CC1742F27E58A15008DA08C /* Main.storyboard in Resources */,
+				5CC1744F27E71933008DA08C /* TrackCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18BCA19D6BD6F7C532D43724 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SongSearcher-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE9F81DDFBC13076D65AB6EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SongSearcher/Pods-SongSearcher-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SongSearcher/Pods-SongSearcher-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SongSearcher/Pods-SongSearcher-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5CC1742027E58A15008DA08C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CC1742C27E58A15008DA08C /* ViewController.swift in Sources */,
+				5CC1744827E70213008DA08C /* KKBOXViewModel.swift in Sources */,
+				5CC1744627E6FF40008DA08C /* Box.swift in Sources */,
+				5CC1742C27E58A15008DA08C /* HomeViewController.swift in Sources */,
+				5CC1744027E5963D008DA08C /* URLRequest+Extension.swift in Sources */,
+				5CC1743E27E59486008DA08C /* HTTPClient.swift in Sources */,
+				5CC1744D27E71916008DA08C /* TrackCell.swift in Sources */,
+				5CC1744A27E7023F008DA08C /* TrackViewModel.swift in Sources */,
+				5CC1743C27E58D4E008DA08C /* KKBOXProvider.swift in Sources */,
 				5CC1742827E58A15008DA08C /* AppDelegate.swift in Sources */,
+				5C049D6327F3342D0038EAC6 /* APIResource.swift in Sources */,
+				5CC1745227E7655D008DA08C /* isEmpty+Extension.swift in Sources */,
+				5CC1744227E59913008DA08C /* KKBOXResponse.swift in Sources */,
 				5CC1742A27E58A15008DA08C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +448,7 @@
 		};
 		5CC1743927E58A15008DA08C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E11FAADE56E3C490CBF0EAD /* Pods-SongSearcher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +477,7 @@
 		};
 		5CC1743A27E58A15008DA08C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C6B36822CB1E7E60762D3DF /* Pods-SongSearcher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
