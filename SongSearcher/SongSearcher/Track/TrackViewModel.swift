@@ -18,7 +18,11 @@ class TrackViewModel {
         return track.name
     }
 
-    var urlString: String {
-        return track.urlString
+    var artist: String {
+        return track.album.artist.name
+    }
+
+    var imageUrlString: String {
+        return track.album.images[0].urlString
     }
 }

@@ -6,19 +6,41 @@
 //
 
 import Foundation
-import UIKit
+import SwiftUI
+import Kingfisher
 
-class TrackCell: UITableViewCell {
-    @IBOutlet weak var label: UILabel!
-    private var viewModel: TrackViewModel?
+struct TrackCell: View {
 
-    func layoutCell(viewModel: TrackViewModel) {
+    var viewModel: TrackViewModel
+
+    init(viewModel: TrackViewModel) {
         self.viewModel = viewModel
-        layoutCell()
     }
 
-    private func layoutCell() {
-        guard let viewModel = viewModel else { return }
-        label.text = viewModel.name
+    var body: some View {
+        HStack {
+            KFImage(URL(string: viewModel.imageUrlString))
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 32, height: 32)
+
+            VStack(alignment: .leading) {
+                Text(viewModel.name)
+                    .font(.body)
+                    .foregroundColor(.black)
+                Text(viewModel.artist)
+                    .font(.caption)
+                    .foregroundColor(.gray)
+            }
+            Spacer()
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 12)
+    }
+}
+
+struct TrackCell_Preview: PreviewProvider {
+    static var previews: some View {
+        TrackCell(viewModel: .init(KKBOXTrackData(name: "軌跡", album: Album(artist: Artist(name: "周杰倫"), images: [TrackImage(urlString: "https://i.kfs.io/album/tw/47735,0v3/fit/160x160.jpg")]))))
     }
 }

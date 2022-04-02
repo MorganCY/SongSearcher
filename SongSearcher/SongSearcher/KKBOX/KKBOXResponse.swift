@@ -23,10 +23,22 @@ struct KKBOXTrack: Codable {
 
 struct KKBOXTrackData: Codable {
     var name: String
+    var album: Album
+}
+
+struct Album: Codable {
+    var artist: Artist
+    var images: [TrackImage]
+}
+
+struct TrackImage: Codable {
     var urlString: String
 
     enum CodingKeys: String, CodingKey {
-        case name
         case urlString = "url"
     }
+}
+
+struct Artist: Codable {
+    var name: String
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		385F5BFD6C27F7989889F6BC /* Pods_SongSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D2A5792C7869D8919DA703 /* Pods_SongSearcher.framework */; };
 		5C049D6327F3342D0038EAC6 /* APIResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C049D6227F3342D0038EAC6 /* APIResource.swift */; };
+		5C049D6D27F607010038EAC6 /* SwiftUICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C049D6C27F607010038EAC6 /* SwiftUICell.swift */; };
+		5C049D6F27F6080F0038EAC6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C049D6E27F6080F0038EAC6 /* UIView+Extension.swift */; };
 		5C907AFC27F3322A003EE15C /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C907AFB27F3322A003EE15C /* APIKeys.plist */; };
 		5CC1742827E58A15008DA08C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1742727E58A15008DA08C /* AppDelegate.swift */; };
 		5CC1742A27E58A15008DA08C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1742927E58A15008DA08C /* SceneDelegate.swift */; };
@@ -24,13 +26,14 @@
 		5CC1744827E70213008DA08C /* KKBOXViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1744727E70213008DA08C /* KKBOXViewModel.swift */; };
 		5CC1744A27E7023F008DA08C /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1744927E7023F008DA08C /* TrackViewModel.swift */; };
 		5CC1744D27E71916008DA08C /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1744C27E71916008DA08C /* TrackCell.swift */; };
-		5CC1744F27E71933008DA08C /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1744E27E71933008DA08C /* TrackCell.xib */; };
 		5CC1745227E7655D008DA08C /* isEmpty+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1745127E7655D008DA08C /* isEmpty+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04D2A5792C7869D8919DA703 /* Pods_SongSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SongSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C049D6227F3342D0038EAC6 /* APIResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResource.swift; sourceTree = "<group>"; };
+		5C049D6C27F607010038EAC6 /* SwiftUICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICell.swift; sourceTree = "<group>"; };
+		5C049D6E27F6080F0038EAC6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5C907AFB27F3322A003EE15C /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		5CC1742427E58A15008DA08C /* SongSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC1742727E58A15008DA08C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +51,6 @@
 		5CC1744727E70213008DA08C /* KKBOXViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKBOXViewModel.swift; sourceTree = "<group>"; };
 		5CC1744927E7023F008DA08C /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		5CC1744C27E71916008DA08C /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
-		5CC1744E27E71933008DA08C /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
 		5CC1745127E7655D008DA08C /* isEmpty+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "isEmpty+Extension.swift"; sourceTree = "<group>"; };
 		5E11FAADE56E3C490CBF0EAD /* Pods-SongSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongSearcher.debug.xcconfig"; path = "Target Support Files/Pods-SongSearcher/Pods-SongSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		9C6B36822CB1E7E60762D3DF /* Pods-SongSearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongSearcher.release.xcconfig"; path = "Target Support Files/Pods-SongSearcher/Pods-SongSearcher.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				5CC1743F27E5963D008DA08C /* URLRequest+Extension.swift */,
 				5CC1745127E7655D008DA08C /* isEmpty+Extension.swift */,
+				5C049D6E27F6080F0038EAC6 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -130,6 +133,7 @@
 				5CC1742727E58A15008DA08C /* AppDelegate.swift */,
 				5CC1742927E58A15008DA08C /* SceneDelegate.swift */,
 				5C049D6727F35BA60038EAC6 /* Utility */,
+				5C049D6C27F607010038EAC6 /* SwiftUICell.swift */,
 				5CC1742D27E58A15008DA08C /* Main.storyboard */,
 				5CC1743227E58A15008DA08C /* LaunchScreen.storyboard */,
 				5CC1743027E58A15008DA08C /* Assets.xcassets */,
@@ -153,7 +157,6 @@
 			children = (
 				5CC1744927E7023F008DA08C /* TrackViewModel.swift */,
 				5CC1744C27E71916008DA08C /* TrackCell.swift */,
-				5CC1744E27E71933008DA08C /* TrackCell.xib */,
 			);
 			path = Track;
 			sourceTree = "<group>";
@@ -239,7 +242,6 @@
 				5CC1743427E58A15008DA08C /* LaunchScreen.storyboard in Resources */,
 				5CC1743127E58A15008DA08C /* Assets.xcassets in Resources */,
 				5CC1742F27E58A15008DA08C /* Main.storyboard in Resources */,
-				5CC1744F27E71933008DA08C /* TrackCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C049D6D27F607010038EAC6 /* SwiftUICell.swift in Sources */,
 				5CC1744827E70213008DA08C /* KKBOXViewModel.swift in Sources */,
+				5C049D6F27F6080F0038EAC6 /* UIView+Extension.swift in Sources */,
 				5CC1744627E6FF40008DA08C /* Box.swift in Sources */,
 				5CC1742C27E58A15008DA08C /* HomeViewController.swift in Sources */,
 				5CC1744027E5963D008DA08C /* URLRequest+Extension.swift in Sources */,

@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.register(UINib(nibName: String(describing: TrackCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TrackCell.self))
+            tableView.register(SwiftUICell<TrackCell>.self, forCellReuseIdentifier: "TrackCell")
         }
     }
 
@@ -68,14 +68,14 @@ extension HomeViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TrackCell.self), for: indexPath)
-        guard let trackCell = cell as? TrackCell else {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath)
+        guard let trackCell = cell as? SwiftUICell<TrackCell> else {
             return cell
         }
 
         if isSearching {
-                let trackViewModel = viewModel.trackViewModels.value[indexPath.row]
-            trackCell.layoutCell(viewModel: trackViewModel)
+            let trackViewModel = viewModel.trackViewModels.value[indexPath.row]
+            trackCell.configure(TrackCell(viewModel: trackViewModel))
         } else {
             return UITableViewCell()
         }
@@ -86,9 +86,8 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.fetchTracks(query: searchText, type: "track")
         isSearching = true
-//        searchBar.resignFirstResponder()
+        viewModel.fetchTracks(query: searchText, type: "track")
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
