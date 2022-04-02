@@ -17,10 +17,10 @@ class SwiftUICell<Content: View>: UITableViewCell {
     }
 
     func configure(_ content: Content) {
-        let contentView = UIHostingController(rootView: content)
-        contentView.view.backgroundColor = .clear
-        contentView.addSubview(contentView.view)
-        contentView.view.translatesAutoresizingMaskIntoConstraints = false
-        contentView.stickSubView(contentView.view)
+        let content = UIHostingController(rootView: content)
+        content.view.backgroundColor = .clear
+        contentView.addSubview(content.view)
+        content.view.translatesAutoresizingMaskIntoConstraints = false
+        contentView.stickSubView(content.view)
     }
 }
