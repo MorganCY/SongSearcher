@@ -12,17 +12,12 @@ class HomeViewController: UIViewController {
 
     enum Section: Int, CaseIterable {
         case tracks
-        case playlist
-        case artists
+        case album
     }
 
-    var sections = Section.allCases
-
     let viewModel = KKBOXViewModel()
-
+    var sections = Section.allCases
     var isSearching = false
-
-    @IBOutlet weak var searchBar: UISearchBar!
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -32,21 +27,25 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         viewModel.fetchAccessToken()
-
         viewModel.trackViewModels.bind { [weak self] _ in
             self?.viewModel.onRefresh()
         }
-
         viewModel.refreshView = {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
-
         tableView.dataSource = self
-        searchBar.delegate = self
+        setNavigationBar()
+    }
+
+    func setNavigationBar() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.title = "有沒有這首歌？"
     }
 }
 
@@ -62,7 +61,7 @@ extension HomeViewController: UITableViewDataSource {
         switch sectionType {
         case .tracks:
             return 3
-        case .playlist, .artists:
+        case .album:
             return 1
         }
     }
@@ -84,14 +83,14 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
-extension HomeViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        isSearching = true
-        viewModel.fetchTracks(query: searchText, type: "track")
-    }
-
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-        tableView.reloadData()
+extension HomeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else {
+            return
+        }
+        if searchText.isNotEmpty {
+            viewModel.fetchTracks(query: searchText, type: "track")
+            isSearching = true
+        }
     }
 }
