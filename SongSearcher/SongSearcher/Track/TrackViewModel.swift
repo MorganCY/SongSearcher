@@ -2,27 +2,11 @@
 //  TrackViewModel.swift
 //  SongSearcher
 //
-//  Created by Zheng-Yuan Yu on 2022/3/20.
+//  Created by Zheng-Yuan Yu on 2022/4/2.
 //
 
-import Foundation
-
-class TrackViewModel {
-    var track: KKBOXTrackData
-
-    init(_ track: KKBOXTrackData) {
-        self.track = track
-    }
-
-    var name: String {
-        return track.name
-    }
-
-    var artist: String {
-        return track.album.artist.name
-    }
-
-    var imageUrlString: String {
-        return track.album.images[0].urlString
-    }
+protocol TrackViewModel {
+    var name: String { get }
+    var artist: String { get }
+    var imageUrlString: String { get }
 }

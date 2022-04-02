@@ -10,8 +10,9 @@ import Foundation
 final class APIResource {
 
     enum CredentialType: String {
-        case client_id
-        case client_secret
+        case kkbox_client_id
+        case kkbox_client_secret
+        case apple_developer_token
     }
 
     private init() {}

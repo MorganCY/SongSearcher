@@ -15,9 +15,12 @@ class HomeViewController: UIViewController {
         case album
     }
 
-    let viewModel = KKBOXViewModel()
+    var viewModel = SearchResultViewModel()
     var sections = Section.allCases
     var isSearching = false
+    let searchController = UISearchController()
+
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -27,7 +30,18 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchAccessToken()
+        bindViewModel(library: .KKBOX(query: nil, type: nil))
+        tableView.dataSource = self
+        setNavigationBar()
+    }
+
+    func bindViewModel(library: Library) {
+        switch library {
+        case .KKBOX(_, _):
+            viewModel.fetchAccessToken()
+        default:
+            break
+        }
         viewModel.trackViewModels.bind { [weak self] _ in
             self?.viewModel.onRefresh()
         }
@@ -36,12 +50,14 @@ class HomeViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-        tableView.dataSource = self
-        setNavigationBar()
+    }
+
+    @IBAction func handleSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        isSearching = false
+        searchController.searchResultsUpdater?.updateSearchResults(for: searchController)
     }
 
     func setNavigationBar() {
-        let searchController = UISearchController()
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -58,11 +74,15 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionType = sections[section]
 
-        switch sectionType {
-        case .tracks:
-            return 3
-        case .album:
-            return 1
+        if viewModel.trackViewModels.value.count > 6 {
+            switch sectionType {
+            case .tracks:
+                return 6
+            case .album:
+                return 1
+            }
+        } else {
+            return viewModel.trackViewModels.value.count
         }
     }
 
@@ -85,12 +105,18 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else {
-            return
+        guard let searchText = searchController.searchBar.text,
+              searchText.isNotEmpty else {
+                  return
+              }
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            viewModel.fetchTracks(library: .KKBOX(query: searchText, type: "track"))
+        case 1:
+            viewModel.fetchTracks(library: .AppleMusic(query: searchText, type: "songs"))
+        default:
+            viewModel.fetchTracks(library: .KKBOX(query: searchText, type: "track"))
         }
-        if searchText.isNotEmpty {
-            viewModel.fetchTracks(query: searchText, type: "track")
-            isSearching = true
-        }
+        isSearching = true
     }
 }

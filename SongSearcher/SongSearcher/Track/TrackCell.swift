@@ -21,8 +21,8 @@ struct TrackCell: View {
         HStack {
             KFImage(URL(string: viewModel.imageUrlString))
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 32, height: 32)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 40, height: 40)
 
             VStack(alignment: .leading) {
                 Text(viewModel.name)
@@ -41,6 +41,6 @@ struct TrackCell: View {
 
 struct TrackCell_Preview: PreviewProvider {
     static var previews: some View {
-        TrackCell(viewModel: .init(KKBOXTrackData(name: "軌跡", album: Album(artist: Artist(name: "周杰倫"), images: [TrackImage(urlString: "https://i.kfs.io/album/tw/47735,0v3/fit/160x160.jpg")]))))
+        TrackCell(viewModel: KKBOXTrackViewModel.init(KKBOXTrack(name: "軌跡", album: KKBOXAlbum(artist: KKBOXArtist(name: "周杰倫"), images: [KKBOXTrackImage(url: "https://i.kfs.io/album/tw/47735,0v3/fit/160x160.jpg")]))))
     }
 }
