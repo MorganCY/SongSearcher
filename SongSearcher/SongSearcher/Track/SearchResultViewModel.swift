@@ -17,16 +17,24 @@ class SearchResultViewModel {
 
     var trackViewModels = Box([TrackViewModel]())
 
-    var accessToken: String?
+    var KKBOXAccessToken: String?
+    var spotifyAccessToken: String?
     var refreshView: (() -> Void)?
 
-    func fetchAccessToken() {
+    func fetchKKBOXAccessToken() {
         _ = HTTPProvider.shared.fetchKKBOXAccessToken()
             .done { token in
-                self.accessToken = token
+                self.KKBOXAccessToken = token
             }
             .catch { error in
                 print(error)
+            }
+    }
+
+    func fetchSpotifyAccessToken() {
+        _ = HTTPProvider.shared.fetchSpotifyAccessToken()
+            .done { token in
+                self.spotifyAccessToken = token
             }
     }
 
@@ -35,7 +43,7 @@ class SearchResultViewModel {
 
         case .KKBOX:
 
-            guard let accessToken = accessToken else {
+            guard let accessToken = KKBOXAccessToken else {
                 return
             }
 
@@ -57,10 +65,11 @@ class SearchResultViewModel {
 
         case .Spotify:
 
-            _ = HTTPProvider.shared.fetchSpotifyAccessToken()
-                .then { token in
+            guard let accessToken = spotifyAccessToken else {
+                return
+            }
 
-                }
+            _ = HTTPProvider.shared.query(library: library, token: accessToken)
                 .done { (tracks: [SpotifyTrack]) in
                     self.setSpotifyTrackList(tracks)
                 }

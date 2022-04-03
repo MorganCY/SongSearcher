@@ -158,12 +158,12 @@
 		5CC1745027E7269B008DA08C /* Track */ = {
 			isa = PBXGroup;
 			children = (
+				5CC1744727E70213008DA08C /* SearchResultViewModel.swift */,
 				5C049D7627F86D8A0038EAC6 /* TrackViewModel.swift */,
 				5CC1744927E7023F008DA08C /* KKBOXTrackViewModel.swift */,
 				5C049D7227F86A6D0038EAC6 /* AppleTrackViewModel.swift */,
 				5C1707B427F9860600A6FBE0 /* SpotifyTrackViewModel.swift */,
 				5CC1744C27E71916008DA08C /* TrackCell.swift */,
-				5CC1744727E70213008DA08C /* SearchResultViewModel.swift */,
 			);
 			path = Track;
 			sourceTree = "<group>";

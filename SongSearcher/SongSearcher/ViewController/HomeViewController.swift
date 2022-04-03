@@ -30,18 +30,13 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindViewModel(library: .KKBOX(query: nil, type: nil))
-        tableView.dataSource = self
+        bindViewModel()
+        fetchAccessToken()
         setNavigationBar()
+        tableView.dataSource = self
     }
 
-    func bindViewModel(library: Library) {
-        switch library {
-        case .KKBOX(_, _):
-            viewModel.fetchAccessToken()
-        default:
-            break
-        }
+    func bindViewModel() {
         viewModel.trackViewModels.bind { [weak self] _ in
             self?.viewModel.onRefresh()
         }
@@ -50,6 +45,11 @@ class HomeViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+
+    func fetchAccessToken() {
+        viewModel.fetchKKBOXAccessToken()
+        viewModel.fetchSpotifyAccessToken()
     }
 
     @IBAction func handleSegmentedControlValueChanged(_ sender: UISegmentedControl) {
