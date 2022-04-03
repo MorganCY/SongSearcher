@@ -53,7 +53,6 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func handleSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        isSearching = false
         searchController.searchResultsUpdater?.updateSearchResults(for: searchController)
     }
 
@@ -109,13 +108,14 @@ extension HomeViewController: UISearchResultsUpdating {
               searchText.isNotEmpty else {
                   return
               }
+        isSearching = false
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             viewModel.fetchTracks(library: .KKBOX(query: searchText, type: "track"))
         case 1:
             viewModel.fetchTracks(library: .AppleMusic(query: searchText, type: "songs"))
         default:
-            viewModel.fetchTracks(library: .KKBOX(query: searchText, type: "track"))
+            viewModel.fetchTracks(library: .Spotify(query: searchText, type: "track"))
         }
         isSearching = true
     }

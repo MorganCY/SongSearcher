@@ -33,7 +33,7 @@ class SearchResultViewModel {
     func fetchTracks(library: Library) {
         switch library {
 
-        case .KKBOX(query: _, type: _):
+        case .KKBOX:
 
             guard let accessToken = accessToken else {
                 return
@@ -43,15 +43,26 @@ class SearchResultViewModel {
                 .done { (tracks: [KKBOXTrack]) in
                     self.setKKBOXTrackList(tracks)
                 }
-        case .AppleMusic(query: _, type: _):
 
-            guard let token =  APIResource.shared.getCredential(of: .apple_developer_token) else {
+        case .AppleMusic:
+
+            guard let token = APIResource.shared.getCredential(of: .apple_developer_token) else {
                 return
             }
 
             _ = HTTPProvider.shared.query(library: library, token: token)
                 .done { (tracks: [AppleTrack]) in
                     self.setAppleMusicTrackList(tracks)
+                }
+
+        case .Spotify:
+
+            _ = HTTPProvider.shared.fetchSpotifyAccessToken()
+                .then { token in
+
+                }
+                .done { (tracks: [SpotifyTrack]) in
+                    self.setSpotifyTrackList(tracks)
                 }
         }
     }
@@ -68,6 +79,10 @@ class SearchResultViewModel {
         trackViewModels.value = convertAppleMusicTracksToViewModels(from: trackList)
     }
 
+    func setSpotifyTrackList(_ trackList: [SpotifyTrack]) {
+        trackViewModels.value = convertSpotifyTracksToViewModels(from: trackList)
+    }
+
     func convertKKBOXTracksToViewModels(from tracks: [KKBOXTrack]) -> [KKBOXTrackViewModel] {
         var viewModels = [KKBOXTrackViewModel]()
         for track in tracks {
@@ -81,6 +96,15 @@ class SearchResultViewModel {
         var viewModels = [AppleTrackViewModel]()
         for track in tracks {
             let viewModel = AppleTrackViewModel(track)
+            viewModels.append(viewModel)
+        }
+        return viewModels
+    }
+
+    func convertSpotifyTracksToViewModels(from tracks: [SpotifyTrack]) -> [SpotifyTrackViewModel] {
+        var viewModels = [SpotifyTrackViewModel]()
+        for track in tracks {
+            let viewModel = SpotifyTrackViewModel(track)
             viewModels.append(viewModel)
         }
         return viewModels

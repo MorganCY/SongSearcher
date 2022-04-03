@@ -14,6 +14,8 @@
 		5C049D7327F86A6D0038EAC6 /* AppleTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C049D7227F86A6D0038EAC6 /* AppleTrackViewModel.swift */; };
 		5C049D7527F86A8E0038EAC6 /* AppleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C049D7427F86A8E0038EAC6 /* AppleResponse.swift */; };
 		5C049D7727F86D8A0038EAC6 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C049D7627F86D8A0038EAC6 /* TrackViewModel.swift */; };
+		5C1707B327F981E900A6FBE0 /* SpotifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1707B227F981E900A6FBE0 /* SpotifyResponse.swift */; };
+		5C1707B527F9860600A6FBE0 /* SpotifyTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1707B427F9860600A6FBE0 /* SpotifyTrackViewModel.swift */; };
 		5C907AFC27F3322A003EE15C /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C907AFB27F3322A003EE15C /* APIKeys.plist */; };
 		5CC1742827E58A15008DA08C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1742727E58A15008DA08C /* AppDelegate.swift */; };
 		5CC1742A27E58A15008DA08C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1742927E58A15008DA08C /* SceneDelegate.swift */; };
@@ -40,6 +42,8 @@
 		5C049D7227F86A6D0038EAC6 /* AppleTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleTrackViewModel.swift; sourceTree = "<group>"; };
 		5C049D7427F86A8E0038EAC6 /* AppleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleResponse.swift; sourceTree = "<group>"; };
 		5C049D7627F86D8A0038EAC6 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
+		5C1707B227F981E900A6FBE0 /* SpotifyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyResponse.swift; sourceTree = "<group>"; };
+		5C1707B427F9860600A6FBE0 /* SpotifyTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTrackViewModel.swift; sourceTree = "<group>"; };
 		5C907AFB27F3322A003EE15C /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		5CC1742427E58A15008DA08C /* SongSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC1742727E58A15008DA08C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 				5C049D6227F3342D0038EAC6 /* APIResource.swift */,
 				5CC1744127E59913008DA08C /* KKBOXResponse.swift */,
 				5C049D7427F86A8E0038EAC6 /* AppleResponse.swift */,
+				5C1707B227F981E900A6FBE0 /* SpotifyResponse.swift */,
 				5C907AFB27F3322A003EE15C /* APIKeys.plist */,
 			);
 			path = HTTP;
@@ -156,6 +161,7 @@
 				5C049D7627F86D8A0038EAC6 /* TrackViewModel.swift */,
 				5CC1744927E7023F008DA08C /* KKBOXTrackViewModel.swift */,
 				5C049D7227F86A6D0038EAC6 /* AppleTrackViewModel.swift */,
+				5C1707B427F9860600A6FBE0 /* SpotifyTrackViewModel.swift */,
 				5CC1744C27E71916008DA08C /* TrackCell.swift */,
 				5CC1744727E70213008DA08C /* SearchResultViewModel.swift */,
 			);
@@ -298,6 +304,7 @@
 				5C049D7727F86D8A0038EAC6 /* TrackViewModel.swift in Sources */,
 				5C049D6D27F607010038EAC6 /* SwiftUICell.swift in Sources */,
 				5CC1744827E70213008DA08C /* SearchResultViewModel.swift in Sources */,
+				5C1707B327F981E900A6FBE0 /* SpotifyResponse.swift in Sources */,
 				5C049D6F27F6080F0038EAC6 /* UIView+Extension.swift in Sources */,
 				5CC1744627E6FF40008DA08C /* Box.swift in Sources */,
 				5CC1742C27E58A15008DA08C /* HomeViewController.swift in Sources */,
@@ -311,6 +318,7 @@
 				5CC1745227E7655D008DA08C /* isEmpty+Extension.swift in Sources */,
 				5C049D7327F86A6D0038EAC6 /* AppleTrackViewModel.swift in Sources */,
 				5CC1744227E59913008DA08C /* KKBOXResponse.swift in Sources */,
+				5C1707B527F9860600A6FBE0 /* SpotifyTrackViewModel.swift in Sources */,
 				5C049D7527F86A8E0038EAC6 /* AppleResponse.swift in Sources */,
 				5CC1742A27E58A15008DA08C /* SceneDelegate.swift in Sources */,
 			);

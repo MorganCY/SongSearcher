@@ -11,6 +11,7 @@ import PromiseKit
 enum Library {
     case KKBOX(query: String?, type: String?)
     case AppleMusic(query: String?, type: String?)
+    case Spotify(query: String?, type: String?)
 
     var host: String {
         switch self {
@@ -18,6 +19,8 @@ enum Library {
             return "api.kkbox.com"
         case .AppleMusic:
             return "api.music.apple.com"
+        case .Spotify:
+            return "api.spotify.com"
         }
     }
 
@@ -27,6 +30,8 @@ enum Library {
             return "/v1.1/search"
         case .AppleMusic:
             return "/v1/catalog/tw/search"
+        case .Spotify:
+            return "/v1/search"
         }
     }
 
@@ -39,6 +44,9 @@ enum Library {
         case .AppleMusic(let query, let type):
             return [URLQueryItem(name: "term", value: query),
                     URLQueryItem(name: "types", value: type)]
+        case .Spotify(let query, let type):
+            return [URLQueryItem(name: "q", value: query),
+                    URLQueryItem(name: "type", value: type)]
         }
     }
 }
@@ -85,6 +93,36 @@ final class HTTPProvider {
         }
     }
 
+    func fetchSpotifyAccessToken()  -> Promise<String> {
+        Promise<String> { seal in
+            var authUrl: URL? {
+                guard let url = APIResource.shared.basicUrl,
+                      var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+                          return nil
+                      }
+
+                urlComponents.host = "accounts.spotify.com"
+                urlComponents.path = "/api/token"
+
+                return urlComponents.url
+            }
+
+            guard let clientId = APIResource.shared.getCredential(of: .spotify_client_id) else {
+                      return
+                  }
+            let request = URLRequest(url: authUrl!, method: .POST, header: ["Authorization": "Basic \(clientId)", "Content-Type": "application/x-www-form-urlencoded"], body: "grant_type=client_credentials".data(using: .utf8))
+
+            httpClient.requestData(request) { (result: Swift.Result<SpotifyAuth, Error>) in
+                switch result {
+                case .success(let responseAuth):
+                    seal.fulfill(responseAuth.accessToken)
+                case .failure(let error):
+                    seal.reject(error)
+                }
+            }
+        }
+    }
+
     func query<T>(library: Library, token: String) -> Promise<T> {
         Promise<T> { seal in
             var searchUrl: URL? {
@@ -103,7 +141,7 @@ final class HTTPProvider {
             let request = URLRequest(url: searchUrl!, method: .GET, header: ["Authorization": "Bearer \(token)"])
 
             switch library {
-            case .KKBOX(_, _):
+            case .KKBOX:
                 httpClient.requestData(request) { (result: Swift.Result<KKBOXResponse, Error>) in
                     switch result {
                     case .success(let responseTrack):
@@ -112,11 +150,20 @@ final class HTTPProvider {
                         seal.reject(error)
                     }
                 }
-            case .AppleMusic(_, _):
+            case .AppleMusic:
                 httpClient.requestData(request) { (result: Swift.Result<AppleResponse, Error>) in
                     switch result {
                     case .success(let responseTrack):
                         seal.fulfill(responseTrack.results.songs.data as! T)
+                    case .failure(let error):
+                        seal.reject(error)
+                    }
+                }
+            case .Spotify:
+                httpClient.requestData(request) { (result: Swift.Result<SpotifyResponse, Error>) in
+                    switch result {
+                    case .success(let responseTrack):
+                        seal.fulfill(responseTrack.tracks.items as! T)
                     case .failure(let error):
                         seal.reject(error)
                     }

@@ -13,6 +13,8 @@ final class APIResource {
         case kkbox_client_id
         case kkbox_client_secret
         case apple_developer_token
+        case spotify_client_id
+        case spotify_client_secret
     }
 
     private init() {}
