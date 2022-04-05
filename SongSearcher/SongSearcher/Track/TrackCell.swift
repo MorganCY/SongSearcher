@@ -18,24 +18,31 @@ struct TrackCell: View {
     }
 
     var body: some View {
-        HStack {
-            KFImage(URL(string: viewModel.imageUrlString))
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 40, height: 40)
+        ZStack {
+            Color(red: 235 / 255, green: 231 / 255, blue: 227 / 255)
+                .ignoresSafeArea()
+            HStack {
+                KFImage(URL(string: viewModel.imageUrlString))
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 40, height: 40)
+                    .cornerRadius(10)
 
-            VStack(alignment: .leading) {
-                Text(viewModel.name)
-                    .font(.body)
-                    .foregroundColor(.black)
-                Text(viewModel.artist)
-                    .font(.caption)
-                    .foregroundColor(.gray)
+                VStack(alignment: .leading) {
+                    Text(viewModel.name)
+                        .font(.body)
+                        .foregroundColor(.black)
+                        .lineLimit(1)
+                    Text(viewModel.artist)
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .lineLimit(1)
+                }
+                Spacer()
             }
-            Spacer()
-        }
-        .padding(.horizontal, 20)
+            .padding(.horizontal, 20)
         .padding(.vertical, 12)
+        }
     }
 }
 

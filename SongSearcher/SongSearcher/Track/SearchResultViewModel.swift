@@ -17,14 +17,14 @@ class SearchResultViewModel {
 
     var trackViewModels = Box([TrackViewModel]())
 
-    var KKBOXAccessToken: String?
+    var kkboxAccessToken: String?
     var spotifyAccessToken: String?
     var refreshView: (() -> Void)?
 
     func fetchKKBOXAccessToken() {
         _ = HTTPProvider.shared.fetchKKBOXAccessToken()
             .done { token in
-                self.KKBOXAccessToken = token
+                self.kkboxAccessToken = token
             }
             .catch { error in
                 print(error)
@@ -43,7 +43,7 @@ class SearchResultViewModel {
 
         case .KKBOX:
 
-            guard let accessToken = KKBOXAccessToken else {
+            guard let accessToken = kkboxAccessToken else {
                 return
             }
 

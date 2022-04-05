@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.register(SwiftUICell<TrackCell>.self, forCellReuseIdentifier: "TrackCell")
+            setTableView()
         }
     }
 
@@ -33,7 +33,9 @@ class HomeViewController: UIViewController {
         bindViewModel()
         fetchAccessToken()
         setNavigationBar()
-        tableView.dataSource = self
+        setSearchBar()
+        setSegmentedControl()
+        view.backgroundColor = .BG
     }
 
     func bindViewModel() {
@@ -55,13 +57,6 @@ class HomeViewController: UIViewController {
     @IBAction func handleSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         searchController.searchResultsUpdater?.updateSearchResults(for: searchController)
     }
-
-    func setNavigationBar() {
-        searchController.searchResultsUpdater = self
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.title = "有沒有這首歌？"
-    }
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -73,15 +68,11 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionType = sections[section]
 
-        if viewModel.trackViewModels.value.count > 6 {
-            switch sectionType {
-            case .tracks:
-                return 6
-            case .album:
-                return 1
-            }
-        } else {
+        switch sectionType {
+        case .tracks:
             return viewModel.trackViewModels.value.count
+        case .album:
+            return 0 // not using for current version
         }
     }
 
@@ -118,5 +109,35 @@ extension HomeViewController: UISearchResultsUpdating {
             viewModel.fetchTracks(library: .Spotify(query: searchText, type: "track"))
         }
         isSearching = true
+    }
+}
+
+extension HomeViewController {
+    func setSegmentedControl() {
+        segmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+    }
+
+    func setNavigationBar() {
+        let navigationBar = navigationController?.navigationBar
+        searchController.searchResultsUpdater = self
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.title = "有沒有這首歌？"
+        navigationBar?.backgroundColor = .Major
+        navigationBar?.barTintColor = .Major
+    }
+
+    func setSearchBar() {
+        let searchBar = searchController.searchBar
+        searchBar.tintColor = .BG
+        searchBar.searchTextField.textColor = .white
+        searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "搜搜看", attributes: [NSAttributedString.Key.foregroundColor : UIColor.BG])
+    }
+
+    func setTableView() {
+        tableView.register(SwiftUICell<TrackCell>.self, forCellReuseIdentifier: "TrackCell")
+        tableView.dataSource = self
+        tableView.backgroundColor = .BG
+        tableView.separatorStyle = .none
     }
 }

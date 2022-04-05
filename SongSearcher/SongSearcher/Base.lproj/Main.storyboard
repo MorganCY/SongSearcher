@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pqf-dl-29f">
-                                <rect key="frame" x="0.0" y="119" width="414" height="743"/>
+                                <rect key="frame" x="0.0" y="183" width="414" height="679"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrackCell" id="YsJ-cd-Sdl">
@@ -31,12 +32,15 @@
                                 </prototypes>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SES-IW-HPj">
-                                <rect key="frame" x="0.0" y="88" width="414" height="32"/>
+                                <rect key="frame" x="20.5" y="118" width="373" height="46"/>
+                                <color key="backgroundColor" name="BG"/>
                                 <segments>
                                     <segment title="KKBOX"/>
                                     <segment title="Apple Music"/>
                                     <segment title="Spotify"/>
                                 </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" name="Major"/>
                                 <connections>
                                     <action selector="handleSegmentedControlValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="wB5-TL-yg8"/>
                                 </connections>
@@ -45,12 +49,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="SES-IW-HPj" secondAttribute="trailing" id="2NL-Fh-VfE"/>
+                            <constraint firstItem="SES-IW-HPj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="1c7-hN-Dcz"/>
+                            <constraint firstItem="SES-IW-HPj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="2LC-I7-mju"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pqf-dl-29f" secondAttribute="trailing" id="5Y3-2W-2nk"/>
-                            <constraint firstItem="Pqf-dl-29f" firstAttribute="top" secondItem="SES-IW-HPj" secondAttribute="bottom" id="COi-2C-jN1"/>
-                            <constraint firstItem="SES-IW-HPj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Nm5-8N-jCf"/>
                             <constraint firstItem="Pqf-dl-29f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="O5p-ji-2Sm"/>
-                            <constraint firstItem="SES-IW-HPj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Xwz-VC-NFc"/>
+                            <constraint firstItem="Pqf-dl-29f" firstAttribute="top" secondItem="SES-IW-HPj" secondAttribute="bottom" constant="20" id="RHU-JK-idK"/>
+                            <constraint firstItem="SES-IW-HPj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Urb-t0-mrc"/>
+                            <constraint firstItem="SES-IW-HPj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.05" id="fXt-fh-zI7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Pqf-dl-29f" secondAttribute="bottom" id="iLu-qE-Cd7"/>
                         </constraints>
                     </view>
@@ -72,6 +77,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="YmC-j3-UU9">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -84,6 +95,12 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="BG">
+            <color red="0.9179999828338623" green="0.90600001811981201" blue="0.88999998569488525" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Major">
+            <color red="0.16862745098039217" green="0.37254901960784315" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
