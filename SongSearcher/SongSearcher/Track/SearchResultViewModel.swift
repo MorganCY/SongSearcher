@@ -118,4 +118,8 @@ class SearchResultViewModel {
         }
         return viewModels
     }
+
+    func removeTrackList() {
+        trackViewModels.value = []
+    }
 }

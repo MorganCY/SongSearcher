@@ -28,6 +28,14 @@ class HomeViewController: UIViewController {
         }
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+             return .lightContent
+          } else {
+             return .default
+          }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -125,6 +133,7 @@ extension HomeViewController {
         navigationItem.title = "有沒有這首歌？"
         navigationBar?.backgroundColor = .Major
         navigationBar?.barTintColor = .Major
+        navigationController?.setStatusBar(backgroundColor: .Major)
     }
 
     func setSearchBar() {
