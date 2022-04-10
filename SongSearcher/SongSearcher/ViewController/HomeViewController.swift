@@ -20,6 +20,9 @@ class HomeViewController: UIViewController {
     var isSearching = false {
         didSet {
             setHint(isHidden: isSearching)
+            if isSearching == false {
+                viewModel.trackViewModels.value = []
+            }
         }
     }
     let searchController = UISearchController()
@@ -121,6 +124,7 @@ extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text,
               searchText.isNotEmpty else {
+                  isSearching = false
                   return
               }
         isSearching = false
@@ -136,7 +140,6 @@ extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate {
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.trackViewModels.value = []
         isSearching = false
     }
 }
