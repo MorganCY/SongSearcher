@@ -163,10 +163,10 @@
 				5C049D6927F35BCB0038EAC6 /* HTTP */,
 				5C049D6627F35B7A0038EAC6 /* ViewController */,
 				5CC1745027E7269B008DA08C /* Track */,
+				5CF0FF1528032F4000E2FA04 /* SwiftUI */,
 				5CC1742727E58A15008DA08C /* AppDelegate.swift */,
 				5CC1742927E58A15008DA08C /* SceneDelegate.swift */,
 				5C049D6727F35BA60038EAC6 /* Utility */,
-				5C049D6C27F607010038EAC6 /* SwiftUICell.swift */,
 				5CC1742D27E58A15008DA08C /* Main.storyboard */,
 				5CC1743227E58A15008DA08C /* LaunchScreen.storyboard */,
 				5CC1743027E58A15008DA08C /* Assets.xcassets */,
@@ -186,6 +186,14 @@
 				5CC1744C27E71916008DA08C /* TrackCell.swift */,
 			);
 			path = Track;
+			sourceTree = "<group>";
+		};
+		5CF0FF1528032F4000E2FA04 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				5C049D6C27F607010038EAC6 /* SwiftUICell.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		A1E263353E8FC34C8B367903 /* Pods */ = {
@@ -506,7 +514,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.morganyu.SongSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -535,7 +543,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.morganyu.SongSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

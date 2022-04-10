@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     var sections = Section.allCases
     var isSearching = false
     let searchController = UISearchController()
+    let hintTextLabel = UILabel()
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
 
@@ -43,6 +44,7 @@ class HomeViewController: UIViewController {
         setNavigationBar()
         setSearchBar()
         setSegmentedControl()
+        setHint(isHidden: false)
         view.backgroundColor = .BG
     }
 
@@ -67,11 +69,12 @@ class HomeViewController: UIViewController {
     }
 
     func fetchAccessToken() {
-        viewModel.fetchKKBOXAccessToken()
         viewModel.fetchSpotifyAccessToken()
+        viewModel.fetchKKBOXAccessToken()
     }
 
     @IBAction func handleSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        searchController.searchBar.searchTextField.resignFirstResponder()
         searchController.searchResultsUpdater?.updateSearchResults(for: searchController)
     }
 }
@@ -110,12 +113,13 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
-extension HomeViewController: UISearchResultsUpdating {
+extension HomeViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text,
               searchText.isNotEmpty else {
                   return
               }
+        setHint(isHidden: true)
         isSearching = false
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -157,5 +161,18 @@ extension HomeViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .BG
         tableView.separatorStyle = .none
+    }
+
+    func setHint(isHidden: Bool) {
+        view.addSubview(hintTextLabel)
+        hintTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            hintTextLabel.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            hintTextLabel.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
+        ])
+        hintTextLabel.text = "輸入想搜尋的歌曲，結果會出現在這裡"
+        hintTextLabel.font = UIFont(name: "PingfangTC-Regular", size: 16)
+        hintTextLabel.textColor = .Major
+        hintTextLabel.isHidden = isHidden
     }
 }
