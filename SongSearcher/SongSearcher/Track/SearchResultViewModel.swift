@@ -20,14 +20,17 @@ class SearchResultViewModel {
     var kkboxAccessToken: String?
     var spotifyAccessToken: String?
     var refreshView: (() -> Void)?
+    var loadView: (() -> Void)?
+    var errorView: (() -> Void)?
+    var dismissReminder: (() -> Void)?
 
     func fetchKKBOXAccessToken() {
         _ = HTTPProvider.shared.fetchKKBOXAccessToken()
             .done { token in
                 self.kkboxAccessToken = token
             }
-            .catch { error in
-                print(error)
+            .catch { _ in
+                self.showError()
             }
     }
 
@@ -36,9 +39,15 @@ class SearchResultViewModel {
             .done { token in
                 self.spotifyAccessToken = token
             }
+            .catch{ _ in
+                self.showError()
+            }
     }
 
     func fetchTracks(library: Library) {
+
+        showLoading()
+
         switch library {
 
         case .KKBOX:
@@ -49,7 +58,12 @@ class SearchResultViewModel {
 
             _ = HTTPProvider.shared.query(library: library, token: accessToken)
                 .done { (tracks: [KKBOXTrack]) in
+                    self.dismissLoading()
                     self.setKKBOXTrackList(tracks)
+                }
+                .catch{ _ in
+                    self.dismissLoading()
+                    self.showError()
                 }
 
         case .AppleMusic:
@@ -60,7 +74,12 @@ class SearchResultViewModel {
 
             _ = HTTPProvider.shared.query(library: library, token: token)
                 .done { (tracks: [AppleTrack]) in
+                    self.dismissLoading()
                     self.setAppleMusicTrackList(tracks)
+                }
+                .catch{ _ in
+                    self.dismissLoading()
+                    self.showError()
                 }
 
         case .Spotify:
@@ -71,13 +90,30 @@ class SearchResultViewModel {
 
             _ = HTTPProvider.shared.query(library: library, token: accessToken)
                 .done { (tracks: [SpotifyTrack]) in
+                    self.dismissLoading()
                     self.setSpotifyTrackList(tracks)
+                }
+                .catch{ _ in
+                    self.dismissLoading()
+                    self.showError()
                 }
         }
     }
 
     func onRefresh() {
         self.refreshView?()
+    }
+
+    func showLoading() {
+        self.loadView?()
+    }
+
+    func showError() {
+        self.errorView?()
+    }
+
+    func dismissLoading() {
+        self.dismissReminder?()
     }
 
     func setKKBOXTrackList(_ trackList: [KKBOXTrack]) {

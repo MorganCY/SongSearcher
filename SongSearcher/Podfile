@@ -8,5 +8,6 @@ target 'SongSearcher' do
   # Pods for SongSearcher
   pod "PromiseKit", "~> 6.8"
   pod 'Kingfisher'
+  pod 'JGProgressHUD'
 
 end

@@ -19,6 +19,7 @@
 		5C33480F27FAF5AE00F79739 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C33480E27FAF5AE00F79739 /* Library.swift */; };
 		5C33481127FAF98A00F79739 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C33481027FAF98A00F79739 /* UIColor+Extension.swift */; };
 		5C33481527FD5C3000F79739 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C33481427FD5C3000F79739 /* UINavigationController+Extension.swift */; };
+		5C3348182802989600F79739 /* JGProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3348172802989600F79739 /* JGProgressHUD.swift */; };
 		5C907AFC27F3322A003EE15C /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C907AFB27F3322A003EE15C /* APIKeys.plist */; };
 		5CC1742827E58A15008DA08C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1742727E58A15008DA08C /* AppDelegate.swift */; };
 		5CC1742A27E58A15008DA08C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1742927E58A15008DA08C /* SceneDelegate.swift */; };
@@ -50,6 +51,7 @@
 		5C33480E27FAF5AE00F79739 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		5C33481027FAF98A00F79739 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5C33481427FD5C3000F79739 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		5C3348172802989600F79739 /* JGProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGProgressHUD.swift; sourceTree = "<group>"; };
 		5C907AFB27F3322A003EE15C /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		5CC1742427E58A15008DA08C /* SongSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC1742727E58A15008DA08C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 			path = HTTP;
 			sourceTree = "<group>";
 		};
+		5C3348162802986700F79739 /* Third Party Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				5C3348172802989600F79739 /* JGProgressHUD.swift */,
+			);
+			path = "Third Party Wrapper";
+			sourceTree = "<group>";
+		};
 		5CC1741B27E58A15008DA08C = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +158,7 @@
 		5CC1742627E58A15008DA08C /* SongSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				5C3348162802986700F79739 /* Third Party Wrapper */,
 				5C049D6827F35BB80038EAC6 /* Extension */,
 				5C049D6927F35BCB0038EAC6 /* HTTP */,
 				5C049D6627F35B7A0038EAC6 /* ViewController */,
@@ -323,6 +334,7 @@
 				5CC1744027E5963D008DA08C /* URLRequest+Extension.swift in Sources */,
 				5CC1743E27E59486008DA08C /* HTTPClient.swift in Sources */,
 				5CC1744D27E71916008DA08C /* TrackCell.swift in Sources */,
+				5C3348182802989600F79739 /* JGProgressHUD.swift in Sources */,
 				5CC1744A27E7023F008DA08C /* KKBOXTrackViewModel.swift in Sources */,
 				5CC1743C27E58D4E008DA08C /* HTTPProvider.swift in Sources */,
 				5CC1742827E58A15008DA08C /* AppDelegate.swift in Sources */,

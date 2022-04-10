@@ -55,6 +55,15 @@ class HomeViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+        viewModel.loadView = {
+            ToastDisplayer.shared.showToast(type: .loading, text: .loading)
+        }
+        viewModel.errorView = {
+            ToastDisplayer.shared.showToast(type: .error, text: .error)
+        }
+        viewModel.dismissReminder = {
+            ToastDisplayer.shared.hud.dismiss()
+        }
     }
 
     func fetchAccessToken() {
