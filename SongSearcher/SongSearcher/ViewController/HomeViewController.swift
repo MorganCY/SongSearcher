@@ -17,7 +17,11 @@ class HomeViewController: UIViewController {
 
     var viewModel = SearchResultViewModel()
     var sections = Section.allCases
-    var isSearching = false
+    var isSearching = false {
+        didSet {
+            setHint(isHidden: isSearching)
+        }
+    }
     let searchController = UISearchController()
     let hintTextLabel = UILabel()
 
@@ -113,13 +117,12 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
-extension HomeViewController: UISearchResultsUpdating, UISearchControllerDelegate {
+extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text,
               searchText.isNotEmpty else {
                   return
               }
-        setHint(isHidden: true)
         isSearching = false
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -130,6 +133,11 @@ extension HomeViewController: UISearchResultsUpdating, UISearchControllerDelegat
             viewModel.fetchTracks(library: .Spotify(query: searchText, type: "track"))
         }
         isSearching = true
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.trackViewModels.value = []
+        isSearching = false
     }
 }
 
@@ -151,6 +159,7 @@ extension HomeViewController {
 
     func setSearchBar() {
         let searchBar = searchController.searchBar
+        searchBar.delegate = self
         searchBar.tintColor = .BG
         searchBar.searchTextField.textColor = .white
         searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "搜搜看", attributes: [NSAttributedString.Key.foregroundColor : UIColor.BG])
