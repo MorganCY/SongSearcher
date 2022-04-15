@@ -1,0 +1,32 @@
+PODS:
+  - JGProgressHUD (2.2)
+  - Kingfisher (7.1.1)
+  - PromiseKit (6.17.0):
+    - PromiseKit/CorePromise (= 6.17.0)
+    - PromiseKit/Foundation (= 6.17.0)
+    - PromiseKit/UIKit (= 6.17.0)
+  - PromiseKit/CorePromise (6.17.0)
+  - PromiseKit/Foundation (6.17.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.17.0):
+    - PromiseKit/CorePromise
+
+DEPENDENCIES:
+  - JGProgressHUD
+  - Kingfisher
+  - PromiseKit (~> 6.8)
+
+SPEC REPOS:
+  trunk:
+    - JGProgressHUD
+    - Kingfisher
+    - PromiseKit
+
+SPEC CHECKSUMS:
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
+  Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
+  PromiseKit: 996202d4cae72b7801b312abef4cd2f995b2978a
+
+PODFILE CHECKSUM: f5950d93c1ab9e6e92747ef0b57045de7e9982e2
+
+COCOAPODS: 1.11.2
