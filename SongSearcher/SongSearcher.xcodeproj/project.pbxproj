@@ -36,6 +36,7 @@
 		5CC1744A27E7023F008DA08C /* KKBOXTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1744927E7023F008DA08C /* KKBOXTrackViewModel.swift */; };
 		5CC1744D27E71916008DA08C /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1744C27E71916008DA08C /* TrackCell.swift */; };
 		5CC1745227E7655D008DA08C /* isEmpty+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1745127E7655D008DA08C /* isEmpty+Extension.swift */; };
+		5CED83B4281BD2FC00426173 /* Then+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED83B3281BD2FC00426173 /* Then+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		5CC1744927E7023F008DA08C /* KKBOXTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKBOXTrackViewModel.swift; sourceTree = "<group>"; };
 		5CC1744C27E71916008DA08C /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		5CC1745127E7655D008DA08C /* isEmpty+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "isEmpty+Extension.swift"; sourceTree = "<group>"; };
+		5CED83B3281BD2FC00426173 /* Then+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Then+Extension.swift"; sourceTree = "<group>"; };
 		5E11FAADE56E3C490CBF0EAD /* Pods-SongSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongSearcher.debug.xcconfig"; path = "Target Support Files/Pods-SongSearcher/Pods-SongSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		9C6B36822CB1E7E60762D3DF /* Pods-SongSearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongSearcher.release.xcconfig"; path = "Target Support Files/Pods-SongSearcher/Pods-SongSearcher.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,15 +160,16 @@
 		5CC1742627E58A15008DA08C /* SongSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				5CED83B5281BD68500426173 /* Tool */,
 				5C3348162802986700F79739 /* Third Party Wrapper */,
 				5C049D6827F35BB80038EAC6 /* Extension */,
 				5C049D6927F35BCB0038EAC6 /* HTTP */,
 				5C049D6627F35B7A0038EAC6 /* ViewController */,
-				5CC1745027E7269B008DA08C /* Track */,
 				5CF0FF1528032F4000E2FA04 /* SwiftUI */,
+				5CC1745027E7269B008DA08C /* TrackData */,
+				5C049D6727F35BA60038EAC6 /* Utility */,
 				5CC1742727E58A15008DA08C /* AppDelegate.swift */,
 				5CC1742927E58A15008DA08C /* SceneDelegate.swift */,
-				5C049D6727F35BA60038EAC6 /* Utility */,
 				5CC1742D27E58A15008DA08C /* Main.storyboard */,
 				5CC1743227E58A15008DA08C /* LaunchScreen.storyboard */,
 				5CC1743027E58A15008DA08C /* Assets.xcassets */,
@@ -175,7 +178,7 @@
 			path = SongSearcher;
 			sourceTree = "<group>";
 		};
-		5CC1745027E7269B008DA08C /* Track */ = {
+		5CC1745027E7269B008DA08C /* TrackData */ = {
 			isa = PBXGroup;
 			children = (
 				5CC1744727E70213008DA08C /* SearchResultViewModel.swift */,
@@ -185,7 +188,15 @@
 				5C1707B427F9860600A6FBE0 /* SpotifyTrackViewModel.swift */,
 				5CC1744C27E71916008DA08C /* TrackCell.swift */,
 			);
-			path = Track;
+			path = TrackData;
+			sourceTree = "<group>";
+		};
+		5CED83B5281BD68500426173 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				5CED83B3281BD2FC00426173 /* Then+Extension.swift */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		5CF0FF1528032F4000E2FA04 /* SwiftUI */ = {
@@ -347,6 +358,7 @@
 				5CC1743C27E58D4E008DA08C /* HTTPProvider.swift in Sources */,
 				5CC1742827E58A15008DA08C /* AppDelegate.swift in Sources */,
 				5C049D6327F3342D0038EAC6 /* APIResource.swift in Sources */,
+				5CED83B4281BD2FC00426173 /* Then+Extension.swift in Sources */,
 				5CC1745227E7655D008DA08C /* isEmpty+Extension.swift in Sources */,
 				5C049D7327F86A6D0038EAC6 /* AppleTrackViewModel.swift in Sources */,
 				5CC1744227E59913008DA08C /* KKBOXResponse.swift in Sources */,

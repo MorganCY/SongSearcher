@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     var sections = Section.allCases
     var isSearching = false {
         didSet {
-            setHint(isHidden: isSearching)
+            setHintTextLabel(isHidden: isSearching)
             if isSearching == false {
                 viewModel.trackViewModels.value = []
             }
@@ -51,7 +51,7 @@ class HomeViewController: UIViewController {
         setNavigationBar()
         setSearchBar()
         setSegmentedControl()
-        setHint(isHidden: false)
+        setHintTextLabel(isHidden: false)
         view.backgroundColor = .BG
     }
 
@@ -76,13 +76,17 @@ class HomeViewController: UIViewController {
     }
 
     func fetchAccessToken() {
-        viewModel.fetchSpotifyAccessToken()
-        viewModel.fetchKKBOXAccessToken()
+        viewModel.do {
+            $0.fetchSpotifyAccessToken()
+            $0.fetchKKBOXAccessToken()
+        }
     }
 
     @IBAction func handleSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        searchController.searchBar.searchTextField.resignFirstResponder()
-        searchController.searchResultsUpdater?.updateSearchResults(for: searchController)
+        searchController.do {
+            $0.searchBar.searchTextField.resignFirstResponder()
+            $0.searchResultsUpdater?.updateSearchResults(for: searchController)
+        }
     }
 }
 
@@ -150,41 +154,47 @@ extension HomeViewController {
     }
 
     func setNavigationBar() {
-        let navigationBar = navigationController?.navigationBar
+        navigationController?.navigationBar.do {
+            $0.backgroundColor = .Major
+            $0.barTintColor = .Major
+        }
+        navigationItem.do {
+            $0.searchController = searchController
+            $0.hidesSearchBarWhenScrolling = false
+            $0.title = "有沒有這首歌？"
+        }
         searchController.searchResultsUpdater = self
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.title = "有沒有這首歌？"
-        navigationBar?.backgroundColor = .Major
-        navigationBar?.barTintColor = .Major
         navigationController?.setStatusBar(backgroundColor: .Major)
     }
 
     func setSearchBar() {
-        let searchBar = searchController.searchBar
-        searchBar.delegate = self
-        searchBar.tintColor = .BG
-        searchBar.searchTextField.textColor = .white
-        searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "搜搜看", attributes: [NSAttributedString.Key.foregroundColor : UIColor.BG])
+        searchController.searchBar.do {
+            $0.delegate = self
+            $0.tintColor = .BG
+            $0.searchTextField.textColor = .white
+            $0.searchTextField.attributedPlaceholder = NSAttributedString(string: "搜搜看", attributes: [NSAttributedString.Key.foregroundColor : UIColor.BG])
+        }
     }
 
     func setTableView() {
-        tableView.register(SwiftUICell<TrackCell>.self, forCellReuseIdentifier: "TrackCell")
-        tableView.dataSource = self
-        tableView.backgroundColor = .BG
-        tableView.separatorStyle = .none
+        tableView.do {
+            $0.register(SwiftUICell<TrackCell>.self, forCellReuseIdentifier: "TrackCell")
+            $0.dataSource = self
+            $0.backgroundColor = .BG
+            $0.separatorStyle = .none
+        }
     }
 
-    func setHint(isHidden: Bool) {
-        view.addSubview(hintTextLabel)
-        hintTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            hintTextLabel.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
-            hintTextLabel.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
-        ])
-        hintTextLabel.text = "輸入想搜尋的歌曲，結果會出現在這裡"
-        hintTextLabel.font = UIFont(name: "PingfangTC-Regular", size: 16)
-        hintTextLabel.textColor = .Major
-        hintTextLabel.isHidden = isHidden
+    func setHintTextLabel(isHidden: Bool) {
+        hintTextLabel.do {
+            view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
+            $0.centerYAnchor.constraint(equalTo: tableView.centerYAnchor).isActive = true
+            $0.text = "輸入想搜尋的歌曲，結果會出現在這裡"
+            $0.font = UIFont(name: "PingfangTC-Regular", size: 16)
+            $0.textColor = .Major
+            $0.isHidden = isHidden
+        }
     }
 }
