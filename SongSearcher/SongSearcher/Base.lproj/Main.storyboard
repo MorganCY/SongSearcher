@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d2O-Bt-LGf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -35,9 +36,9 @@
                                 <rect key="frame" x="20.5" y="118" width="373" height="46"/>
                                 <color key="backgroundColor" name="BG"/>
                                 <segments>
-                                    <segment title="KKBOX"/>
-                                    <segment title="Apple Music"/>
                                     <segment title="Spotify"/>
+                                    <segment title="Apple Music"/>
+                                    <segment title="KKBOX"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="selectedSegmentTintColor" name="Major"/>
@@ -96,7 +97,7 @@
     </scenes>
     <resources>
         <namedColor name="BG">
-            <color red="0.9179999828338623" green="0.90600001811981201" blue="0.88999998569488525" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.91764705882352937" green="0.90588235294117647" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Major">
             <color red="0.16862745098039217" green="0.37254901960784315" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -134,11 +134,13 @@ extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate {
         isSearching = false
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            viewModel.fetchTracks(library: .KKBOX(query: searchText, type: "track"))
+            viewModel.fetchTracks(library: .Spotify(query: searchText, type: "track"))
         case 1:
             viewModel.fetchTracks(library: .AppleMusic(query: searchText, type: "songs"))
+        case 2:
+            viewModel.fetchTracks(library: .KKBOX(query: searchText, type: "track"))
         default:
-            viewModel.fetchTracks(library: .Spotify(query: searchText, type: "track"))
+            break
         }
         isSearching = true
     }
