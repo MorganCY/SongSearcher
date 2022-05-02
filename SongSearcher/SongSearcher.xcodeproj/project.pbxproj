@@ -37,6 +37,9 @@
 		5CC1744D27E71916008DA08C /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1744C27E71916008DA08C /* TrackCell.swift */; };
 		5CC1745227E7655D008DA08C /* isEmpty+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1745127E7655D008DA08C /* isEmpty+Extension.swift */; };
 		5CED83B4281BD2FC00426173 /* Then+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED83B3281BD2FC00426173 /* Then+Extension.swift */; };
+		5CED83B7281E9B1500426173 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED83B6281E9B1500426173 /* MusicPlayer.swift */; };
+		5CED83BA281E9ED800426173 /* PlayerBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED83B9281E9ED800426173 /* PlayerBar.swift */; };
+		5CED83BC281EA53E00426173 /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED83BB281EA53E00426173 /* Kingfisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,9 @@
 		5CC1744C27E71916008DA08C /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		5CC1745127E7655D008DA08C /* isEmpty+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "isEmpty+Extension.swift"; sourceTree = "<group>"; };
 		5CED83B3281BD2FC00426173 /* Then+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Then+Extension.swift"; sourceTree = "<group>"; };
+		5CED83B6281E9B1500426173 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
+		5CED83B9281E9ED800426173 /* PlayerBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBar.swift; sourceTree = "<group>"; };
+		5CED83BB281EA53E00426173 /* Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
 		5E11FAADE56E3C490CBF0EAD /* Pods-SongSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongSearcher.debug.xcconfig"; path = "Target Support Files/Pods-SongSearcher/Pods-SongSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		9C6B36822CB1E7E60762D3DF /* Pods-SongSearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongSearcher.release.xcconfig"; path = "Target Support Files/Pods-SongSearcher/Pods-SongSearcher.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				5C3348172802989600F79739 /* JGProgressHUD.swift */,
+				5CED83BB281EA53E00426173 /* Kingfisher.swift */,
 			);
 			path = "Third Party Wrapper";
 			sourceTree = "<group>";
@@ -168,6 +175,8 @@
 				5CF0FF1528032F4000E2FA04 /* SwiftUI */,
 				5CC1745027E7269B008DA08C /* TrackData */,
 				5C049D6727F35BA60038EAC6 /* Utility */,
+				5CED83B9281E9ED800426173 /* PlayerBar.swift */,
+				5CED83B6281E9B1500426173 /* MusicPlayer.swift */,
 				5CC1742727E58A15008DA08C /* AppDelegate.swift */,
 				5CC1742927E58A15008DA08C /* SceneDelegate.swift */,
 				5CC1742D27E58A15008DA08C /* Main.storyboard */,
@@ -340,13 +349,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CED83B7281E9B1500426173 /* MusicPlayer.swift in Sources */,
 				5C33480F27FAF5AE00F79739 /* Library.swift in Sources */,
 				5C049D7727F86D8A0038EAC6 /* TrackViewModel.swift in Sources */,
+				5CED83BA281E9ED800426173 /* PlayerBar.swift in Sources */,
 				5C049D6D27F607010038EAC6 /* SwiftUICell.swift in Sources */,
 				5C33481127FAF98A00F79739 /* UIColor+Extension.swift in Sources */,
 				5CC1744827E70213008DA08C /* SearchResultViewModel.swift in Sources */,
 				5C33481527FD5C3000F79739 /* UINavigationController+Extension.swift in Sources */,
 				5C1707B327F981E900A6FBE0 /* SpotifyResponse.swift in Sources */,
+				5CED83BC281EA53E00426173 /* Kingfisher.swift in Sources */,
 				5C049D6F27F6080F0038EAC6 /* UIView+Extension.swift in Sources */,
 				5CC1744627E6FF40008DA08C /* Box.swift in Sources */,
 				5CC1742C27E58A15008DA08C /* HomeViewController.swift in Sources */,

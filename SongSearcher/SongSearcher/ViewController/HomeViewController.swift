@@ -25,8 +25,14 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    var isPlaying = false {
+        didSet {
+            playerBar?.isHidden = !isPlaying
+        }
+    }
     let searchController = UISearchController()
     let hintTextLabel = UILabel()
+    var playerBar: PlayerBar?
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
 
@@ -52,6 +58,7 @@ class HomeViewController: UIViewController {
         setSearchBar()
         setSegmentedControl()
         setHintTextLabel(isHidden: false)
+        setPlayerBar(playerBar: playerBar)
         view.backgroundColor = .BG
     }
 
@@ -88,6 +95,15 @@ class HomeViewController: UIViewController {
             $0.searchResultsUpdater?.updateSearchResults(for: searchController)
         }
     }
+
+    private func resetPlayerBar(trackViewModel: TrackViewModel) {
+        playerBar?.do {
+            $0.removeFromSuperview()
+            $0.willMove(toSuperview: nil)
+        }
+        playerBar = PlayerBar(viewModel: trackViewModel)
+        setPlayerBar(playerBar: playerBar)
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -121,6 +137,17 @@ extension HomeViewController: UITableViewDataSource {
         }
 
         return trackCell
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let trackViewModel = viewModel.trackViewModels.value[indexPath.row]
+        resetPlayerBar(trackViewModel: trackViewModel)
+        isPlaying = true
+        playerBar?.isPlaying = isPlaying
+        searchController.searchBar.searchTextField.resignFirstResponder()
     }
 }
 
@@ -182,6 +209,7 @@ extension HomeViewController {
         tableView.do {
             $0.register(SwiftUICell<TrackCell>.self, forCellReuseIdentifier: "TrackCell")
             $0.dataSource = self
+            $0.delegate = self
             $0.backgroundColor = .BG
             $0.separatorStyle = .none
         }
@@ -197,6 +225,14 @@ extension HomeViewController {
             $0.font = UIFont(name: "PingfangTC-Regular", size: 16)
             $0.textColor = .Major
             $0.isHidden = isHidden
+        }
+    }
+
+    func setPlayerBar(playerBar: PlayerBar?) {
+        playerBar?.do {
+            view.addSubview($0)
+            $0.isHidden = !isPlaying
+            $0.setup()
         }
     }
 }
